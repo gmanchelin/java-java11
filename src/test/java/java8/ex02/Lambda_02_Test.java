@@ -37,7 +37,12 @@ public class Lambda_02_Test {
 
         // TODO transformer la liste de personnes en liste de comptes
         // TODO tous les objets comptes ont un solde à 100 par défaut
-        List<Account> result = map(personList, null);
+
+        List<Account> result = map(personList, (Person p) -> new Account(p, 100));
+
+        /*// TODO result ne doit contenir que des personnes dont le prénom est "first_10"
+        List<Person> result = filter(personList, (person) -> person.getFirstname().equals("first_10"));
+*/
 
         assert result.size() == personList.size();
         for (Account account : result) {
